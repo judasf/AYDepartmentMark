@@ -1,0 +1,21 @@
+.softkeyboard {
+	DISPLAY: none; Z-INDEX: 180; LEFT: 0px; WIDTH: 0px; POSITION: absolute; TOP: 0px
+}
+.btn_letter {
+	BORDER-RIGHT: #ffffff; BORDER-TOP: #ffffff; FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(Ba.png); BORDER-LEFT: #ffffff; COLOR: #ffffff; BORDER-BOTTOM: #ffffff
+}
+.btn_num {
+	BORDER-RIGHT: #ffffff; BORDER-TOP: #ffffff; FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(Bb.png); BORDER-LEFT: #ffffff; COLOR: #ffffff; BORDER-BOTTOM: #ffffff
+}
+.btn_letter {
+	PADDING-LEFT: 2px; FONT-SIZE: 12px; WIDTH: 24px; CURSOR: hand; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.btn_num {
+	PADDING-LEFT: 2px; FONT-SIZE: 12px; WIDTH: 24px; CURSOR: hand; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.table_title {
+	BORDER-RIGHT: #d2f0ff 1px solid; FILTER: Alpha(Opacity=40); HEIGHT: 20px
+}
+.btn_input {
+	BORDER-RIGHT: #7ebf4f; BORDER-TOP: #7ebf4f; BORDER-LEFT: #7ebf4f; WIDTH: 130px; COLOR: black; BORDER-BOTTOM: #7ebf4f; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 22px; TEXT-DECORATION: none
+}

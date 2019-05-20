@@ -1,0 +1,270 @@
+A {
+	
+}
+#Layer1 {
+	Z-INDEX: 1; WIDTH: 455px; POSITION: absolute; HEIGHT: 200px
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+HTML {
+	FONT-SIZE: 12px; MAX-HEIGHT: 100%; HEIGHT: 100%
+}
+BODY {
+	BACKGROUND-POSITION: left bottom; FONT-SIZE: 9px; BACKGROUND-ATTACHMENT: fixed; MARGIN: 0px; OVERFLOW: hidden; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; HEIGHT: 100%
+}
+.inputt {
+	BORDER-RIGHT: #ebebeb 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ebebeb 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; FILTER: alpha(opacity=50); PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ebebeb 1px solid; WIDTH: 190px; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 15px; BACKGROUND-COLOR: #ebebeb; TEXT-DECORATION: none
+}
+.inputt2 {
+	BORDER-RIGHT: #ebebeb 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ebebeb 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ebebeb 1px solid; WIDTH: 122px; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 15px; BACKGROUND-COLOR: #ebebeb; TEXT-DECORATION: none
+}
+.t12 {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"
+}
+.DropShadow0 {
+	FILTER: DropShadow(Color=#000000, OffX=1, OffY=1, Positive=1)
+}
+.DropShadow1 {
+	FILTER: DropShadow(Color=#ffffff, OffX=1, OffY=1, Positive=1)
+}
+.DropShadow2 {
+	FILTER: DropShadow(Color=#27B4F4, OffX=1, OffY=1, Positive=1)
+}
+A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.theme1 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(bgrd_7.jpg); COLOR: #631b5a; BACKGROUND-COLOR: #631b5a
+}
+.theme1 H1 {
+	COLOR: #436a9d
+}
+.theme1 H2 {
+	COLOR: #abc2d9; BACKGROUND-COLOR: #4470a8
+}
+.theme1 #date {
+	
+}
+.theme1 A {
+	COLOR: #ffffff
+}
+.theme1 A:hover {
+	COLOR: #ff0096
+}
+.theme1 #content DL {
+	COLOR: #fff
+}
+.theme1 #navContent LI A {
+	COLOR: #fff
+}
+* HTML .theme1 #navContent LI A {
+	COLOR: #b00078
+}
+.theme1 #navContent LI A:hover {
+	COLOR: #fff; BACKGROUND-COLOR: #b00078
+}
+.theme1 .non_saisi {
+	COLOR: #abc2d9; BACKGROUND-COLOR: #4470a8
+}
+.theme2 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(bgrd_8.jpg); COLOR: #2f64b0; BACKGROUND-COLOR: #2f64b0
+}
+.theme2 H1 {
+	COLOR: #666
+}
+.theme2 H2 {
+	COLOR: #999; BACKGROUND-COLOR: #eee
+}
+.theme2 #date {
+	COLOR: #999
+}
+.theme2 A {
+	COLOR: #ffffff
+}
+.theme2 A:hover {
+	COLOR: #333333
+}
+.theme2 #navContent LI A {
+	COLOR: #000
+}
+.theme2 #navContent LI A:hover {
+	COLOR: #666; BACKGROUND-COLOR: #fff
+}
+* HTML .theme2 #navContent LI A:hover {
+	COLOR: #fff; BACKGROUND-COLOR: #666
+}
+.theme2 .out {
+	BACKGROUND-COLOR: #ccc
+}
+.outtxt {
+	BACKGROUND-COLOR: #ccc
+}
+.theme2 .overtxt {
+	BACKGROUND-COLOR: #999
+}
+.over {
+	BACKGROUND-COLOR: #999
+}
+.theme2 .non_saisi {
+	COLOR: #999; BACKGROUND-COLOR: #eee
+}
+.theme3 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(bgrd_3.jpg); COLOR: #97016f; BACKGROUND-COLOR: #97016f
+}
+.theme3 H1 {
+	COLOR: #666
+}
+.theme3 H2 {
+	COLOR: #fff; BACKGROUND-COLOR: #de3901
+}
+.theme3 #date {
+	COLOR: #999
+}
+.theme3 A {
+	COLOR: #ffffff
+}
+.theme3 A:hover {
+	COLOR: #ff9900
+}
+.theme3 #navContent LI A {
+	COLOR: #000
+}
+.theme3 #navContent LI A:hover {
+	COLOR: #fff; BACKGROUND-COLOR: #bc2a01
+}
+.theme3 .out {
+	BACKGROUND-COLOR: #fff
+}
+.outtxt {
+	BACKGROUND-COLOR: #fff
+}
+.theme3 .overtxt {
+	BACKGROUND-COLOR: #999
+}
+.over {
+	BACKGROUND-COLOR: #999
+}
+.theme3 .non_saisi {
+	COLOR: #fff; BACKGROUND-COLOR: #de3901
+}
+.theme4 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(bgrd_4.jpg); COLOR: #333333; BACKGROUND-COLOR: #333333
+}
+.theme4 H1 {
+	COLOR: #666
+}
+.theme4 H2 {
+	COLOR: #066e7e; BACKGROUND-COLOR: #06dafa
+}
+.theme4 #date {
+	COLOR: #333
+}
+.theme4 A {
+	COLOR: #ffffff
+}
+.theme4 A:hover {
+	COLOR: #ff0096
+}
+.theme4 #navContent LI A {
+	COLOR: #fff
+}
+* HTML .theme4 #navContent {
+	COLOR: #fff; BACKGROUND-COLOR: #000
+}
+.theme4 #navContent LI A:hover {
+	COLOR: #fff; BACKGROUND-COLOR: #06dafa
+}
+.theme4 .out {
+	COLOR: #ccc; BACKGROUND-COLOR: #333
+}
+.outtxt {
+	COLOR: #ccc; BACKGROUND-COLOR: #333
+}
+.theme4 .overtxt {
+	BACKGROUND-COLOR: #999
+}
+.over {
+	BACKGROUND-COLOR: #999
+}
+.theme4 .non_saisi {
+	COLOR: #066e7e; BACKGROUND-COLOR: #06dafa
+}
+.theme5 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(bgrd_1.jpg); COLOR: #406995; BACKGROUND-COLOR: #406995
+}
+.theme5 H1 {
+	COLOR: #436a9d
+}
+.theme5 H2 {
+	COLOR: #abc2d9; BACKGROUND-COLOR: #4470a8
+}
+.theme5 #date {
+	COLOR: #436a9d
+}
+.theme5 A {
+	COLOR: #ffffff
+}
+.theme5 A:hover {
+	COLOR: #3366cc
+}
+.theme5 #navContent LI A {
+	COLOR: #9ebd99
+}
+* HTML .theme5 #navContent LI A {
+	COLOR: #fff
+}
+.theme5 #navContent LI A:hover {
+	COLOR: #fff; BACKGROUND-COLOR: #b00078
+}
+.theme5 .non_saisi {
+	COLOR: #abc2d9; BACKGROUND-COLOR: #4470a8
+}
+#nav {
+	OVERFLOW: hidden; HEIGHT: 20px
+}
+.liste_bgrd {
+	MARGIN-LEFT: 2px
+}
+.liste_bgrd LI {
+	DISPLAY: inline
+}
+.liste_bgrd LI A IMG {
+	BORDER-RIGHT: #d2def0 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d2def0 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; BORDER-LEFT: #d2def0 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #d2def0 1px solid; HEIGHT: 16px
+}
+.liste_bgrd LI A:hover IMG {
+	BORDER-RIGHT: #ff9900 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ff9900 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ff9900 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 16px
+}
+.liste_bgrd LI A:focus IMG {
+	BORDER-RIGHT: #ff9900 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ff9900 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ff9900 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 16px
+}
+.liste_bgrd LI A:hover IMG {
+	BORDER-RIGHT: #ff9900 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ff9900 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ff9900 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 16px
+}
+.liste_bgrd LI A:focus IMG {
+	BORDER-RIGHT: #ff9900 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ff9900 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ff9900 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 16px
+}
+#date {
+	LEFT: 590px; MARGIN: 20px 30px; BOTTOM: 420px; POSITION: absolute
+}
+#date SPAN {
+	DISPLAY: block; MARGIN-RIGHT: 5px; TEXT-ALIGN: left
+}
+#month {
+	MARGIN-TOP: 10px; PADDING-LEFT: 3px; FONT-WEIGHT: bold; FONT-SIZE: 2.5em; LETTER-SPACING: 3px
+}
+#day {
+	MARGIN-TOP: -5px; FONT-SIZE: 7em; FLOAT: left; LINE-HEIGHT: 70px; FONT-FAMILY: georgia; LETTER-SPACING: -2px
+}
+#year {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 1.4em; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 10px
+}
