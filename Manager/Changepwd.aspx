@@ -24,7 +24,7 @@
             style="border-collapse: collapse" bordercolor="#F5F5FF">
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">安阳联通公司领导业绩评价系统</b>
+                    <b style="font-size: 18px;">领导业绩评价系统</b>
                 </td>
             </tr>
             <tr>

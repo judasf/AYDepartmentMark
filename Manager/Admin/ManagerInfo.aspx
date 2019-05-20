@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通公司领导业绩评价系统后台管理</title>
+    <title>领导业绩评价系统后台管理</title>
     <link href="../../CSS/style.css" rel="Stylesheet" />
 </head>
 <body style="margin: 5px 0;">
@@ -12,7 +12,7 @@
         <tbody>
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">安阳联通公司领导业绩评价系统后台管理</b>
+                    <b style="font-size: 18px;">领导业绩评价系统后台管理</b>
                 </td>
             </tr>
             <tr>

@@ -3,7 +3,7 @@
 <%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通公司领导业绩评价系统</title>
+    <title>领导业绩评价系统</title>
     <link href="../../css/style.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td valign="middle" align="center">
-                            <p class="head" style="width:80%;line-height:50px"> <b style="font-size: 20px">安阳联通公司领导业绩评价系统后台管理</b></p>
+                            <p class="head" style="width:80%;line-height:50px"> <b style="font-size: 20px">领导业绩评价系统后台管理</b></p>
                             <font color='#555555'><b>请输入您的用户名和密码</b></font><br>
                             <br>
                             <table rules="none" width="350" border="1" cellpadding="5" cellspacing="5" align="center"

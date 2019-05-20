@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通部门工作计划总结后台管理</title>
+    <title>部门工作计划总结后台管理</title>
     <link href="../../CSS/style.css" rel="Stylesheet" />
      <%--引入Jquery文件--%>
     <script src="../../js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
@@ -20,7 +20,7 @@
         <tbody>
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">安阳联通部门工作计划总结后台管理</b>
+                    <b style="font-size: 18px;">部门工作计划总结后台管理</b>
                 </td>
             </tr>
             <tr>

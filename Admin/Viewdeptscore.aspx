@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通服务支撑评价系统后台查询</title>
+    <title>服务支撑评价系统后台查询</title>
     <link href="../CSS/style.css" rel="Stylesheet" />
     <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
 </head>
@@ -13,7 +13,7 @@
         <tbody>
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">安阳联通服务支撑评价系统后台查询</b>
+                    <b style="font-size: 18px;">服务支撑评价系统后台查询</b>
                 </td>
             </tr>
             <tr>

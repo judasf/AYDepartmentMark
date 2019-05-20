@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>安阳联通服务支撑评价</title>
+    <title>服务支撑评价</title>
     <link href="images2/css_login.css" type="text/css" rel="stylesheet" />
     <link href="images2/before_login.css" type="text/css" rel="stylesheet" />
     <!--[if lt IE 7.]>

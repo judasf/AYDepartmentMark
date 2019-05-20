@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通部门工作计划总结管理</title>
+    <title>部门工作计划总结管理</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <script src="../js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td valign="middle" align="center">
-                                <p class="head" style="width: 50%; height: 50px; line-height: 50px;"><b style="font-size: 20px;">安阳联通部门工作计划总结管理</b></p>
+                                <p class="head" style="width: 50%; height: 50px; line-height: 50px;"><b style="font-size: 20px;">部门工作计划总结管理</b></p>
                                 <br>
                                 <br />
                                 <table rules="none" width="350" border="1" cellpadding="5" cellspacing="5" align="center"

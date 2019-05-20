@@ -24,7 +24,7 @@
         style="border-collapse: collapse" bordercolor="#F5F5FF">
         <tr>
             <td class="head" align="center" height="25">
-                <b style="font-size: 18px;">安阳联通部门工作计划总结管理</b>
+                <b style="font-size: 18px;">部门工作计划总结管理</b>
             </td>
         </tr>
         <tr>

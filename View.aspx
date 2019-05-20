@@ -3,7 +3,7 @@
 <%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 --%><html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>安阳联通服务支撑评价系统</title>
+    <title>服务支撑评价系统</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="margin: 5px 0;">
@@ -12,7 +12,7 @@
         style="border-collapse: collapse" bordercolor="#F5F5FF">
         <tr>
             <td class="head" align="center" height="25">
-                <b style="font-size: 18px;">安阳联通服务支撑评价系统</b>
+                <b style="font-size: 18px;">服务支撑评价系统</b>
             </td>
         </tr>
         <tr>

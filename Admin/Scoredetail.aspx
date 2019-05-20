@@ -11,7 +11,7 @@
         style="border-collapse: collapse" bordercolor="#F5F5FF">
         <tr>
             <td class="head" align="center" height="25">
-                <b style="font-size: 18px;">安阳联通服务支撑评价系统</b>
+                <b style="font-size: 18px;">服务支撑评价系统</b>
             </td>
         </tr>
         <tr>
