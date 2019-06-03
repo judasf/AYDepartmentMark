@@ -58,7 +58,7 @@
                             <td align="center" height="25"></td>
                         </tr>
                     </table>
-                    <p style="font-family: 'Arial', Gadget, sans-serif; color: #ffffff;">copyright &copy;安阳市联通公司</p>
+                    <p style="font-family: 'Arial', Gadget, sans-serif; color: #ffffff;"></p>
                 </td>
             </tr>
         </table>
