@@ -5,32 +5,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using System.Data;
-public partial class ManagerMarks : System.Web.UI.Page
+using System.Data.SqlClient;
+public partial class GridMarks : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+
         if (!IsPostBack)
         {
-            if (Session["mid"] == null || Session["mid"].ToString() == "")
-                Response.Write("<script type='text/javascript'>alert('请重新登陆！');window.location.href='Default.aspx';</script>");
+            if (Session["gid"] == null || Session["gid"].ToString() == "")
+                ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','请重新登陆！','error',function(){window.location.href='Default.aspx';}); ", true);
+            //Response.Write("<script type='text/javascript'>alert('请重新登陆！');window.location.href='Default.aspx';</script>");
             else
             {
-                if (Session["manaName"] != null)
-                    lblDeptName.Text = "当前用户：" + Session["manaName"].ToString();
+                if (Session["gname"] != null)
+                    lblDeptName.Text = "当前用户：" + Session["gname"].ToString();
 
                 //markmonth.InnerText = DateTime.Now.AddMonths(-1).ToString("yyyy年MM月");
                 ddlMarkMonth.Items.Clear();
-                if (DateTime.Now.ToString("yyyyMM") == "201603")
-                {
-                    ddlMarkMonth.Items.Add(new ListItem("2016年02月", "2016-02"));
-                    ddlMarkMonth.Items.Add(new ListItem("2016年01月", "2016-01"));
-                }
-                else
-                    ddlMarkMonth.Items.Add(new ListItem(DateTime.Now.AddMonths(-1).ToString("yyyy年MM月"), DateTime.Now.AddMonths(-1).ToString("yyyy-MM")));
+                ddlMarkMonth.Items.Add(new ListItem(DateTime.Now.AddMonths(-1).ToString("yyyy年MM月"), DateTime.Now.AddMonths(-1).ToString("yyyy-MM")));
 
                 //绑定Repepater开始  
-                DataSet ds = DirectDataAccessor.QueryForDataSet(" select x.deptid,d.deptname from departments d join ManagerMarkRelation x on x.deptid=d.id and x.mid=" + Session["mid"].ToString() + " order by d.id");
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, "SELECT a.ByMarkGridId, b.GridName FROM dbo.G_GridMarkRelation a JOIN dbo.G_GridInfo b ON  a.ByMarkGridId = b.ID WHERE a.GridID = @gid", new SqlParameter("@gid", Session["gid"]));
                 total.Value = ds.Tables[0].Rows.Count.ToString();
                 rep.DataSource = ds;
                 rep.DataBind();
@@ -62,7 +58,7 @@ public partial class ManagerMarks : System.Web.UI.Page
                 HiddenField byMarkDeptID = (HiddenField)ctrl.FindControl("deptId");//被打分部门id
                 DropDownList ddlScore = (DropDownList)ctrl.FindControl("ddlScore");
                 TextBox memo = (TextBox)ctrl.FindControl("memo");
-                if (ddlScore.SelectedValue == "-1")
+                if (ddlScore.SelectedValue == "0")
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Error", "alert('请选择所有分值！')", true);
                     //return;
@@ -74,7 +70,7 @@ public partial class ManagerMarks : System.Web.UI.Page
                 DirectDataAccessor.Execute(insertSql);
                 //计算被评分部门得分，更新部门得分表开始
                 string scoreSql = "select score,IsDuputy from ManagerMarkForDeptsInfo AS a JOIN ManagerInfo AS b ";
-                scoreSql+=" ON a.mid=b.Mid where ByMarkDeptID=" + byMarkDeptID.Value + " and MarkMonth='" + localDate + "'";
+                scoreSql += " ON a.mid=b.Mid where ByMarkDeptID=" + byMarkDeptID.Value + " and MarkMonth='" + localDate + "'";
                 DataSet scoreDs = DirectDataAccessor.QueryForDataSet(scoreSql);
                 double totalScore = 0.0;
                 string deptScore;//部门得分:正职*0.6+副职*0.4
@@ -84,12 +80,12 @@ public partial class ManagerMarks : System.Web.UI.Page
                     //    totalScore = double.Parse(dr[0].ToString());
                     //else
                     //{
-                        if (dr[1].ToString() == "0")
-                            totalScore += double.Parse(dr[0].ToString()) * 0.6;
-                        else if (dr[1].ToString() == "1")
-                        {
-                             totalScore += double.Parse(dr[0].ToString()) * 0.4;
-                        }
+                    if (dr[1].ToString() == "0")
+                        totalScore += double.Parse(dr[0].ToString()) * 0.6;
+                    else if (dr[1].ToString() == "1")
+                    {
+                        totalScore += double.Parse(dr[0].ToString()) * 0.4;
+                    }
                     //}
                 }
                 deptScore = totalScore.ToString("f2");
@@ -107,15 +103,27 @@ public partial class ManagerMarks : System.Web.UI.Page
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.EditItem)
         {
-            //HiddenField byMarkDeptID = (HiddenField)e.Item.FindControl("deptId");//被打分部门id
-            //string scoreNum = DirectDataAccessor.QueryForDataSet("select scorenum from departments where id=" + byMarkDeptID.Value).Tables[0].Rows[0][0].ToString();
+            HiddenField ByMarkGridId = (HiddenField)e.Item.FindControl("ByMarkGridId");//被打分网格id
+            string scoreNum = DirectDataAccessor.QueryForDataSet("select scorenum from G_GridInfo where id=" + ByMarkGridId.Value).Tables[0].Rows[0][0].ToString();
             DropDownList ddlScore = e.Item.FindControl("ddlScore") as DropDownList;
-            ddlScore.Items.Add(new ListItem("请选择分值", "-1"));
-            for (int i = 20; i >= 0; i--)
+            ddlScore.Items.Add(new ListItem("请选择分值", "0"));
+            for (int i = 1; i <= int.Parse(scoreNum); i++)
             {
                 ddlScore.Items.Add(new ListItem(i.ToString()));
             }
 
         }
+        //if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.EditItem)
+        //{
+        //    //HiddenField byMarkDeptID = (HiddenField)e.Item.FindControl("deptId");//被打分部门id
+        //    //string scoreNum = DirectDataAccessor.QueryForDataSet("select scorenum from departments where id=" + byMarkDeptID.Value).Tables[0].Rows[0][0].ToString();
+        //    DropDownList ddlScore = e.Item.FindControl("ddlScore") as DropDownList;
+        //    ddlScore.Items.Add(new ListItem("请选择分值", "-1"));
+        //    for (int i = 10; i >= 0; i--)
+        //    {
+        //        ddlScore.Items.Add(new ListItem(i.ToString()));
+        //    }
+
+        //}
     }
 }

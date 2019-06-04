@@ -1,13 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ManagerMarks.aspx.cs" Inherits="ManagerMarks" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GridMarks.aspx.cs" Inherits="GridMarks" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>领导业绩评价</title>
+    <title>网格评价系统</title>
+    <link href="../Css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/style.css" type="text/css" rel="Stylesheet" />
     <script src="../js/My97DatePicker/WdatePicker.js"></script>
+    <%--引入Jquery文件--%>
+    <script src="../js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../js/extJquery.js" type="text/javascript"></script>
+    <%--引入easyui文件--%>
+    <script src="../js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="../js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="../js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script type="text/javascript">
-        function chkblank() {
+        var chkblank=function () {
             var tjok = true;
             var total = document.getElementById("total").value;
             for (i = 0; i < total; i++) {
@@ -17,14 +26,14 @@
                 else
                     num = "0" + i;
                 var score = document.getElementById("rep_ctl" + num + "_ddlScore")
-                if (score.value == "-1") {
+                if (score.value == "0") {
                     tjok = false;
                     break;
                 }
 
             }
             if (!tjok) {
-                alert("请选择所有分值！");
+                $.messager.alert("提示", "请选择所有分值！", 'info');
                 return false;
             }
             if (confirm("您确定要提交分数吗？提交后将不能更改！"))
@@ -37,17 +46,17 @@
 <body style="margin: 0;">
     <form id="form1" runat="server">
         <table style="border-collapse: collapse" bordercolor="#f5f5ff" cellspacing="0" cellpadding="6"
-            width="100%"  height="98%" bgcolor="#f5f5ff" border="2">
+            width="100%" height="98%" bgcolor="#f5f5ff" border="2">
             <tbody>
                 <tr>
                     <td class="head" align="center" height="25">
-                        <b style="font-size: 18px;">领导业绩评价系统</b>
+                        <b style="font-size: 18px;">网格评价系统</b>
                     </td>
                 </tr>
                 <tr>
                     <td valign="center" bgcolor="#ced4e8" height="18">
                         <font color='#333333' class="smalltxt">&nbsp;&nbsp;[<a href="ManagerMarks.aspx">
-                        业绩评价表</a>]&nbsp;&nbsp;[<a href="ChangePwd.aspx">
+                        网格评价表</a>]&nbsp;&nbsp;[<a href="ChangePwd.aspx">
                     修改密码</a>]&nbsp;&nbsp;[<a href="logout.aspx">退出</a>] </font>
                         <asp:Label ID="lblDeptName" Style="margin-left: 35%; display: inline; text-align: center; color: Black; font-weight: 700;"
                             runat="server" Text="Label"></asp:Label>
@@ -55,65 +64,64 @@
                 </tr>
                 <tr>
                     <td valign="top" align="center" bgcolor="#f5f5ff">
-                        <table style="border-collapse: collapse" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
-                            width="96%" border="1">
+                        <table class="table" style="width: 96%;text-align:center;" border="1">
                             <tbody>
                                 <tr>
                                     <td class="head" align="left">
-                                        <b>业绩评价</b>
+                                        <b>网格评价</b>
                                     </td>
                                 </tr>
                                 <tr align="center">
                                     <td>
                                         <p align="left">
-                                            <b>评价月份：<asp:DropDownList ID="ddlMarkMonth" runat="server"></asp:DropDownList>
-                                                <span style="margin-left:30%;display:inline;">
-                                                [<a href="ViewPlan.aspx?ym=<%=DateTime.Now.AddMonths(-1).ToString("yyyy-MM") %>" target="_blank" title="点击查看">被评价部门工作计划</a>]&nbsp;&nbsp;
-                                                [<a href="ViewSummary.aspx?ym=<%=DateTime.Now.AddMonths(-1).ToString("yyyy-MM") %>" target="_blank" title="点击查看">被评价部门工作总结</a>]</span>
+                                            <b>评分月份：
+                                                <asp:DropDownList ID="ddlMarkMonth" runat="server" style="width:90px;"></asp:DropDownList>
                                             </b>
                                         </p>
-                                        <table style="border-collapse: collapse" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
-                                            width="90%" border="1">
-                                            <tbody>
-                                                <tr class="bold" align="center" bgcolor="#ced4e8">
-                                                    <td width="5%">序号
+                                        <table class="table-condensed  table-hover" style="border-collapse: collapse; width: 90%;margin:0 auto;" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
+                                            border="1">
+                                            <thead>
+                                                <tr class="bold" bgcolor="#ced4e8">
+                                                    <td style="text-align:center" width="5%">序号
                                                     </td>
-                                                    <td width="20%">部门
+                                                    <td   style="text-align:center"  width="20%">网格名称
                                                     </td>
-                                                    <td width="30%">评分
+                                                    <td  style="text-align:center"  width="30%">评分
                                                     </td>
-                                                    <td>备注
+                                                    <td  style="text-align:center" >备注
                                                     </td>
                                                 </tr>
+                                                </thead>
+                                            <tbody>
                                                 <asp:Repeater ID="rep" runat="server" OnItemDataBound="rep_ItemDataBound">
                                                     <ItemTemplate>
                                                         <tr align="left">
-                                                            <td align="center">
+                                                            <td  style="vertical-align: middle;text-align:center">
                                                                 <%#Container.ItemIndex+1 %>
                                                             </td>
-                                                            <td>
-                                                                <%#Eval("deptname")%><asp:HiddenField ID="deptId" runat="server" Value='<%#Eval("deptid") %>' />
+                                                            <td style="vertical-align: middle;text-align:center">
+                                                                <%#Eval("GridName")%><asp:HiddenField ID="ByMarkGridId" runat="server" Value='<%#Eval("ByMarkGridId") %>' />
                                                             </td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddlScore" runat="server">
                                                                 </asp:DropDownList>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="memo" runat="server" size="60" MaxLength="500"></asp:TextBox>
+                                                                <asp:TextBox class="form-control" ID="memo" runat="server" size="60" MaxLength="500"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                                 <tr>
                                                     <td colspan="4" align="left">备注：<br />
-                                                        1、打分标准：依据部门月度工作计划及完成情况等内容进行评分。<br />
-                                                        2、打分范围：满意（20分）、比较满意（16-19分）、一般（12-15分）、不太满意（8-11分）、非常不满意（0-7分）。
+                                                        1、打分标准：依据网格支撑及工作情况进行评分。<br />
+                                                        2、打分范围：满意（10分）、比较满意（8-9分）、一般（6-7分）、不满意（1-5分）。
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div align="center">
-                                            <asp:Button ID="Button1" runat="server" class="btn" Text="提交" OnClick="Button1_Click"
+                                            <asp:Button ID="Button1" style="margin-top:20px;width:80px;height:30px;" runat="server" class="btn btn-primary" Text="提交" OnClick="Button1_Click"
                                                 OnClientClick="return chkblank();" />
                                             <asp:HiddenField ID="total" runat="server" />
                                         </div>
@@ -144,8 +152,8 @@
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;
-                                   <input type="text"  style="width:100px;"  class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy年MM月',readOnly:'true',vel:'ddlYm',realDateFmt:'yyyy-MM'})" />
-                                        <input type="hidden" id="ddlYm"  />
+                                   <input type="text" style="width: 100px;" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy年MM月',readOnly:'true',vel:'ddlYm',realDateFmt:'yyyy-MM'})" />
+                                        <input type="hidden" id="ddlYm" />
                                         &nbsp;&nbsp;
                                     <input onclick="view()" type="button" class="btn" value="查看" />
                                     </td>

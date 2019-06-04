@@ -19,7 +19,7 @@ public partial class Default : System.Web.UI.Page
         else
         {
 
-            string sql = "select * from ManagerInfo where managername=@name and managerpwd=@pwd";
+            string sql = "select * from dbo.G_GridInfo where GridName=@name and LoginPwd=@pwd and ismarking=1";
             SqlParameter[] paras = new SqlParameter[] { 
                 new SqlParameter("@name",name.Value),
                 new SqlParameter("@pwd",pwd.Value)
@@ -27,9 +27,9 @@ public partial class Default : System.Web.UI.Page
             DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql, paras);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                Session["mid"] = ds.Tables[0].Rows[0][0];
-                Session["manaName"] = ds.Tables[0].Rows[0][1];
-                Response.Redirect("ManagerMarks.aspx");
+                Session["gid"] = ds.Tables[0].Rows[0][0];
+                Session["gname"] = ds.Tables[0].Rows[0][1];
+                Response.Redirect("GridMarks.aspx");
             }
             else
                 ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','账号或密码不正确！','error'); ", true);

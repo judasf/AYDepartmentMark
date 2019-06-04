@@ -23,20 +23,20 @@
 
         <form id="form2" runat="server" class="form-horizontal">
             <h2 style="text-align: center; margin: 50px; padding-bottom: 10px; border-bottom: 2px solid #6A71A3;">网格评价系统</h2>
-            <div class="form-group">
-                <label for="name" class="col-sm-4 control-label">账号</label>
-                <div class="col-sm-6">
-                    <input runat="server" type="text" class="form-control "  id="name" placeholder="账号" />
+            <div class="control-group ">
+                <label for="name" class="control-label">账号：</label>
+                <div class="controls">
+                    <input runat="server" style="float: left; width: 160px;" type="text" id="name" placeholder="账号" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="pwd" class="col-sm-4 control-label">密码</label>
-                <div class="col-sm-6">
-                    <input runat="server" type="password" class="form-control" id="pwd" placeholder="密码" />
+                <label for="pwd" class="col-sm-4 control-label">密码：</label>
+                <div class="controls">
+                    <input runat="server" type="password" style="float: left; width: 160px;" id="pwd" placeholder="密码" />
                 </div>
             </div>
             <div class="form-group">
-                <asp:Button ID="login" class="btn btn-primary" style="margin-top:20px;width:120px;" runat="server" Text="登陆" OnClick="login_Click" />
+                <asp:Button ID="login" class="btn btn-primary" Style="margin-top: 20px; width: 120px;" runat="server" Text="登陆" OnClick="login_Click" />
             </div>
         </form>
     </div>

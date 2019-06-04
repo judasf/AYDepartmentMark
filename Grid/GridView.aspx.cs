@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using System.Data;
-public partial class ManagerView : System.Web.UI.Page
+public partial class GridView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
