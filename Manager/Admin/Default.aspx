@@ -75,7 +75,7 @@
             </td>
         </tr>
     </table>
-         <p style="font-family:'Arial', Gadget, sans-serif;color:#ffffff;text-align:center;"> copyright &copy;安阳市联通公司</p>
+         <p style="font-family:'Arial', Gadget, sans-serif;color:#ffffff;text-align:center;"></p>
     </form>
 </body>
 </html>

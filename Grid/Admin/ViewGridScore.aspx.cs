@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-public partial class Admin_ViewDeptScore : System.Web.UI.Page
+public partial class Admin_ViewGridScore : System.Web.UI.Page
 {
     public string showYear;
     public string showMonth;
@@ -29,15 +29,11 @@ public partial class Admin_ViewDeptScore : System.Web.UI.Page
     }
     private void BindRep(string ym)
     {
-        string isExist = "select * from ManagerMarkDeptScore where scoredate='" + ym + "'";
+        string isExist = "select * from G_GridMarksInfo where MarkMonth='" + ym + "'";
         DataSet existDs = DirectDataAccessor.QueryForDataSet(isExist);
         if (existDs.Tables[0].Rows.Count > 0)
         {
-            string sql = "select d.id,d.deptname,x.score from departments d join ";
-            sql += " ( select b.deptid,s.score from ";
-            sql += " (SELECT DISTINCT deptid FROM ManagerMarkRelation ) b ";
-            sql += "  left join ManagerMarkDeptScore s on s.deptid=b.deptid and s.scoredate='" + ym + "') x";
-            sql += " on x.deptid=d.id  ";
+            string sql = "SELECT a.id,a.GridName,b.Score FROM (SELECT id, GridName FROM dbo.G_GridInfo WHERE scoreNum <> 0)a LEFT JOIN(SELECT ByMarkGridID, CONVERT(DECIMAL(5, 2), AVG(CAST(Score AS DECIMAL(5, 2))))AS score FROM G_GridMarksInfo WHERE MarkMonth = '"+ym+"' GROUP BY ByMarkGridID) b ON a.id = b.ByMarkGridID  ";
             DataSet ds = DirectDataAccessor.QueryForDataSet(sql);
             rep.DataSource = ds;
             rep.DataBind();

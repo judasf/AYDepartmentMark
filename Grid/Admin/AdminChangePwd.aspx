@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>领导业绩评价系统后台管理</title>
+     <title>网格评价系统后台管理</title>
     <link href="../../css/style.css" rel="stylesheet" type="text/css" />
 
   
@@ -27,14 +27,14 @@
         <tbody>
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">领导业绩评价系统后台管理</b>
+                    <b style="font-size: 18px;">网格评价系统后台管理</b>
                 </td>
             </tr>
             <tr>
                 <td valign="middle" bgcolor="#ced4e8" height="18">
-            &nbsp;&nbsp; <a href="Viewdeptscore.aspx"><b style="line-height: 18px; font-size: 14px;">
-                        业绩评价查询</b></a> &nbsp;&nbsp; <a href="ManagerInfo.aspx"><b style="line-height: 18px;
-                            font-size: 14px;">公司领导管理</b></a> &nbsp;&nbsp; <a href="AdminChangePwd.aspx"><b style="font-size: 14px;">
+            &nbsp;&nbsp; <a href="ViewGridScore.aspx"><b style="line-height: 18px; font-size: 14px;">
+                        网格评价查询</b></a> &nbsp;&nbsp; <a href="GridInfo.aspx"><b style="line-height: 18px;
+                            font-size: 14px;">打分网格管理</b></a> &nbsp;&nbsp; <a href="AdminChangePwd.aspx"><b style="font-size: 14px;">
                                 修改密码</b></a>&nbsp;&nbsp; <a href="Logout.aspx"><b style="font-size: 14px;">退出</b></a>
                 </td>
             </tr>

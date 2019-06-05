@@ -13,21 +13,18 @@ public partial class Admin_ScoreDetail : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.QueryString["deptId"] == null || Request.QueryString["deptId"] == "" || Request.QueryString["year"] == null || Request.QueryString["year"] == "")
+            if (Request.QueryString["gid"] == null || Request.QueryString["gid"] == "" || Request.QueryString["year"] == null || Request.QueryString["year"] == "")
                 Response.Write("<script type='text/javascript'>alert('请重新登陆！');window.location.href='Default.aspx';</script>");
             else
             {
-                string deptNameSql = "select DeptName from Departments where id=" + Request.QueryString["deptId"];
+                string deptNameSql = "select GridName from G_GridInfo where id=" + Request.QueryString["gid"];
                 DataSet deptDs = DirectDataAccessor.QueryForDataSet(deptNameSql);
                 deptName = deptDs.Tables[0].Rows[0][0].ToString();
                 string scoreDate = Request.QueryString["year"] + "-" + Request.QueryString["month"];
                 StringBuilder sql = new StringBuilder();
-                sql.Append("SELECT managername,score,memo,markingtime FROM ");
-                sql.Append("(SELECT * FROM  ManagerMarkRelation WHERE deptid=@deptid) a ");
-                sql.Append(" LEFT JOIN ManagerMarkForDeptsInfo b  ");
-                sql.Append("ON a.deptid=b.ByMarkDeptID AND a.mid=b.mid  and b.markmonth=@markmonth ");
-                sql.Append("JOIN ManagerInfo AS c ON a.mid=c.mid ");
-                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql.ToString(), new SqlParameter[] { new SqlParameter("@deptid", Request.QueryString["deptId"]), new SqlParameter("@markmonth", scoreDate) }
+                sql.Append(" SELECT c.GridName,score,memo,b.Time FROM (SELECT * FROM dbo.G_GridMarkRelation WHERE ByMarkGridId = @gid) a LEFT JOIN dbo.G_GridMarksInfo b ON a.GridID = b.GridID AND b.ByMarkGridID = @gid AND b.MarkMonth = @markmonth JOIN dbo.G_GridInfo c ON  a.GridID = c.ID ");
+               
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql.ToString(), new SqlParameter[] { new SqlParameter("@gid", Request.QueryString["gid"]), new SqlParameter("@markmonth", scoreDate) }
                     );
                 if (ds.Tables[0].Rows.Count > 0)
                 {

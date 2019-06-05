@@ -11,13 +11,13 @@
         style="border-collapse: collapse" bordercolor="#F5F5FF">
         <tr>
             <td class="head" align="center" height="25">
-                <b style="font-size: 18px;">领导业绩评价系统后台管理</b>
+                <b style="font-size: 18px;">网格绩评价系统后台管理</b>
             </td>
         </tr>
         <tr>
             <td bgcolor="#F5F5FF" align="center" valign="top">
                 <p align="left">
-                    <b>得分月份：<%=Request.QueryString["year"] %>年<%=Request.QueryString["month"] %>月份</b>&nbsp;&nbsp;&nbsp;&nbsp;<b>部门名称:<%=deptName %></b></p>
+                    <b>得分月份：<%=Request.QueryString["year"] %>年<%=Request.QueryString["month"] %>月份</b>&nbsp;&nbsp;&nbsp;&nbsp;<b>网格名称:<%=deptName %></b></p>
                 <b id="noScore" style="display: none;">没有本月评分信息！</b>
                 <table border="1" width="90%" cellspacing="1" cellpadding="3" style="border-collapse: collapse;"
                     bordercolor='#6A71A3' id="scoreList">
@@ -26,10 +26,10 @@
                             序号
                         </td>
                         <td>
-                            公司领导
+                            网格
                         </td>
                         <td>
-                            得分
+                           评分
                         </td>
                         <td>
                             备注
@@ -45,7 +45,7 @@
                                     <%#Container.ItemIndex+1 %>
                                 </td>
                                 <td>
-                                    <%#Eval("managername") %>
+                                    <%#Eval("gridname") %>
                                 </td>
                                 <td>
                                     <%#Eval("score")%>
@@ -54,7 +54,7 @@
                                     <%#Eval("memo")%>
                                 </td>
                                 <td>
-                                    <%#Eval("markingtime","{0:yyyy-MM-dd HH:mm:ss}")%>
+                                    <%#Eval("time","{0:yyyy-MM-dd HH:mm:ss}")%>
                                 </td>
                             </tr>
                         </ItemTemplate>

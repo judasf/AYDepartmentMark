@@ -26,10 +26,10 @@ public partial class AdminChangePwd : System.Web.UI.Page
                 ClientScript.RegisterStartupScript(this.GetType(), "info1", "alert('请输入新密码！');", true);
             else
             {
-                if (ConfigurationManager.AppSettings["AdminPwd"] == txtOld.Text)
+                if (ConfigurationManager.AppSettings["GAdminPwd"] == txtOld.Text)
                 {
                   // Response.Write(HttpContext.Current.Server.MapPath("../web.config"));
-                    Modify("AdminPwd", txtNew.Text);
+                    Modify("GAdminPwd", txtNew.Text);
                     /*
                     configuration = ConfigurationManager.OpenExeConfiguration(exePath);
 

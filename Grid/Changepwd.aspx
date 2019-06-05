@@ -24,13 +24,13 @@
             style="border-collapse: collapse" bordercolor="#F5F5FF">
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">领导业绩评价系统</b>
+                    <b style="font-size: 18px;">网格评价系统</b>
                 </td>
             </tr>
             <tr>
                 <td bgcolor='#CED4E8' valign='middle' height="18">
-                    <font color='#333333' class="smalltxt">&nbsp;&nbsp;[<a href="ManagerMarks.aspx">
-                        业绩评价表</a>]&nbsp;&nbsp;[<a href="ChangePwd.aspx">
+                    <font color='#333333' class="smalltxt">&nbsp;&nbsp;[<a href="GridMarks.aspx">
+                        网格评价表</a>]&nbsp;&nbsp;[<a href="ChangePwd.aspx">
                     修改密码</a>]&nbsp;&nbsp;[<a href="logout.aspx">退出</a>] </font>
                 </td>
             </tr>

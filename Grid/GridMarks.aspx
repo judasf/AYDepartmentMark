@@ -16,7 +16,7 @@
     <link href="../js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
     <script src="../js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var chkblank=function () {
+        function chkblank() {
             var tjok = true;
             var total = document.getElementById("total").value;
             for (i = 0; i < total; i++) {
@@ -136,7 +136,7 @@
                                 if (y.length == 0)
                                     alert('请选择日期！');
                                 else {
-                                    var url = "ManagerView.aspx?ym=" + y;
+                                    var url = "GridView.aspx?ym=" + y;
                                     var iTop = (window.screen.height - 30 - 600) / 2; //获得窗口的垂直位置;  
                                     var iLeft = (window.screen.width - 10 - 800) / 2; //获得窗口的水平位置;  
                                     window.open(url, "view", "resizable=no,scrollbars=yes,location=no,toolbar=no,menubar=no,status=no,width=800,height=600,top=" + iTop + ",left=" + iLeft);
@@ -147,7 +147,7 @@
                             cellspacing="1" cellpadding="3" width="96%" border="1">
                             <tbody align="left">
                                 <tr bgcolor="#9fb5ec">
-                                    <td class="head">以往业绩评价
+                                    <td class="head">以往评价
                                     </td>
                                 </tr>
                                 <tr>
@@ -155,7 +155,7 @@
                                    <input type="text" style="width: 100px;" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy年MM月',readOnly:'true',vel:'ddlYm',realDateFmt:'yyyy-MM'})" />
                                         <input type="hidden" id="ddlYm" />
                                         &nbsp;&nbsp;
-                                    <input onclick="view()" type="button" class="btn" value="查看" />
+                                    <input onclick="view()" type="button" class="btn btn-primary" value="查看" />
                                     </td>
                                 </tr>
                             </tbody>

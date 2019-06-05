@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-public partial class Admin_ManagerInfo : System.Web.UI.Page
+public partial class Admin_GridInfo : System.Web.UI.Page
 {
     public string showYear;
     public string showMonth;
@@ -21,7 +21,7 @@ public partial class Admin_ManagerInfo : System.Web.UI.Page
     }
     private void BindRep()
     {
-        string sql = "select mid,managername from ManagerInfo";
+        string sql = "select id,GridName from G_GridInfo where ismarking=1";
         DataSet ds = DirectDataAccessor.QueryForDataSet(sql);
         rep.DataSource = ds;
         rep.DataBind();
@@ -31,7 +31,7 @@ public partial class Admin_ManagerInfo : System.Web.UI.Page
     {
         if (e.CommandName == "btnRecover")
         {
-            DirectDataAccessor.Execute("UPDATE ManagerInfo set managerpwd='123456' where mid='" + e.CommandArgument.ToString() + "'");
+            DirectDataAccessor.Execute("UPDATE G_GridInfo set loginpwd='wgpj.0' where id='" + e.CommandArgument.ToString() + "'");
             ClientScript.RegisterStartupScript(this.GetType(), "info", "alert('密码恢复成功！')", true);
         }
     }

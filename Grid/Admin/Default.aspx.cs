@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -13,16 +13,16 @@ public partial class _Default : System.Web.UI.Page
     protected void login_Click(object sender, EventArgs e)
     {
         if (name.Value == "" && pwd.Value == "")
-            ClientScript.RegisterStartupScript(this.GetType(), "Error", "alert('用户名或密码错误,请重新输入!')", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','账号或密码不正确！','error'); ", true);
         else
         {
-            if(ConfigurationManager.AppSettings["AdminName"]==name.Value &&ConfigurationManager.AppSettings["AdminPwd"]==pwd.Value)
+            if(ConfigurationManager.AppSettings["GAdminName"]==name.Value &&ConfigurationManager.AppSettings["GAdminPwd"]==pwd.Value)
             {
                 Session["admin"] = name.Value;
-                Response.Redirect("ViewDeptScore.aspx");
+                Response.Redirect("ViewGridScore.aspx");
             }           
             else
-                ClientScript.RegisterStartupScript(this.GetType(), "Error", "alert('用户名或密码错误,请重新输入!')", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','账号或密码不正确！','error'); ", true);
         }
     }
 }
