@@ -12,7 +12,7 @@
             style="border-collapse: collapse" bordercolor="#F5F5FF">
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">领导业绩评价系统</b>
+                    <b style="font-size: 18px;">网格评价系统</b>
                 </td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                     <table border="1" width="90%" cellspacing="1" cellpadding="3" style="border-collapse: collapse;" bordercolor='#6A71A3' id="scoreList">
                         <tr bgcolor='#CED4E8' align="center" class="bold">
                             <td width="5%">编号</td>
-                            <td width="20%">部门
+                            <td width="20%">网格
                             </td>
                             <td>得分
                             </td>
@@ -35,7 +35,7 @@
                             <ItemTemplate>
                                 <tr align="center">
                                     <td><%#Container.ItemIndex+1 %></td>
-                                    <td><%#Eval("deptname") %></td>
+                                    <td><%#Eval("GridName") %></td>
                                     <td><%#Eval("score")%></td>
                                     <td><%#Eval("memo")%></td>
                                 </tr>

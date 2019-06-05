@@ -11,16 +11,16 @@ public partial class GridView : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Session["mid"] == null || Session["mid"].ToString() == "" || Request.QueryString["ym"] == null || Request.QueryString["ym"] == "")
+            if (Session["gid"] == null || Session["gid"].ToString() == "" || Request.QueryString["ym"] == null || Request.QueryString["ym"] == "")
                 Response.Write("<script type='text/javascript'>alert('请重新登陆！');window.location.href='Default.aspx';</script>");
             else
             {
                
                 string scoreDate = Request.QueryString["ym"] ;
                 StringBuilder sql = new StringBuilder();
-                sql.Append("select  d.deptname,x.score,x.memo  from departments d join ");
-                sql.Append(" ManagerMarkForDeptsInfo x  on ");
-                sql.Append("x.bymarkdeptid=d.id where x.mid=" + Session["mid"].ToString() + " and ");
+                sql.Append("select  d.GridName,x.score,x.memo  from G_GridInfo d join ");
+                sql.Append(" G_GridMarksInfo x  on ");
+                sql.Append("x.ByMarkGridID=d.id where x.Gridid=" + Session["gid"].ToString() + " and ");
                 sql.Append("MarkMonth='" + scoreDate + "' ");
                 DataSet ds = DirectDataAccessor.QueryForDataSet(sql.ToString());
                 if (ds.Tables[0].Rows.Count > 0)
