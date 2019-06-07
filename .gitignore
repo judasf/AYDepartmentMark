@@ -242,3 +242,5 @@ ModelManifest.xml
 .fake/
 /Web - 副本.config1
 *.config
+/images/Thumbs.db
+/Images2/Thumbs.db
