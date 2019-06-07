@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 public partial class Admin_ViewGridScore : System.Web.UI.Page
 {
     public string showYear;
@@ -29,12 +30,12 @@ public partial class Admin_ViewGridScore : System.Web.UI.Page
     }
     private void BindRep(string ym)
     {
-        string isExist = "select * from G_GridMarksInfo where MarkMonth='" + ym + "'";
-        DataSet existDs = DirectDataAccessor.QueryForDataSet(isExist);
+        string isExist = "select * from G_GridMarksInfo where MarkMonth=@ym";
+        DataSet existDs = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, isExist, new SqlParameter("@ym", ym));
         if (existDs.Tables[0].Rows.Count > 0)
         {
-            string sql = "SELECT a.id,a.GridName,b.Score FROM (SELECT id, GridName FROM dbo.G_GridInfo WHERE scoreNum <> 0)a LEFT JOIN(SELECT ByMarkGridID, CONVERT(DECIMAL(5, 2), AVG(CAST(Score AS DECIMAL(5, 2))))AS score FROM G_GridMarksInfo WHERE MarkMonth = '"+ym+"' GROUP BY ByMarkGridID) b ON a.id = b.ByMarkGridID  ";
-            DataSet ds = DirectDataAccessor.QueryForDataSet(sql);
+            string sql = "SELECT a.id,a.GridName,b.Score FROM (SELECT id, GridName FROM dbo.G_GridInfo WHERE scoreNum <> 0)a LEFT JOIN(SELECT ByMarkGridID, CONVERT(DECIMAL(5, 2), AVG(CAST(Score AS DECIMAL(5, 2))))AS score FROM G_GridMarksInfo WHERE MarkMonth = @ym GROUP BY ByMarkGridID) b ON a.id = b.ByMarkGridID  ";
+            DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql, new SqlParameter("@ym", ym));
             rep.DataSource = ds;
             rep.DataBind();
         }

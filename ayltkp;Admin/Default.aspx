@@ -5,7 +5,14 @@
 <head runat="server">
     <title>服务支撑评价系统</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
-
+      <%--引入Jquery文件--%>
+    <script src="../js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../js/extJquery.js" type="text/javascript"></script>
+    <%--引入easyui文件--%>
+    <script src="../js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="../js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="../js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         function s() {
@@ -28,7 +35,7 @@
         <tr>
             <td align="center" valign="top" width="25%">
                 <br />
-                <img src="logo.gif" alt="" />
+               
             </td>
             <td align="center" valign="top">
                 <table width="100%" height="600px" border="0" cellpadding="0" cellspacing="5" align="center">
@@ -75,7 +82,7 @@
             </td>
         </tr>
     </table>
-         <p style="font-family:'Arial', Gadget, sans-serif;color:#ffffff;text-align:center;"> copyright &copy;安阳市联通公司</p>
+         <p style="font-family:'Arial', Gadget, sans-serif;color:#ffffff;text-align:center;"> copyright &copy;服务公司</p>
     </form>
 </body>
 </html>

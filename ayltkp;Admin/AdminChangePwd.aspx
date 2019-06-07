@@ -27,7 +27,7 @@
         <tbody>
             <tr>
                 <td class="head" align="center" height="25">
-                    <b style="font-size: 18px;">部服务支撑评价系统后台管理</b>
+                    <b style="font-size: 18px;">服务支撑评价系统后台管理</b>
                 </td>
             </tr>
             <tr>

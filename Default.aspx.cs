@@ -15,12 +15,11 @@ public partial class login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write((double.Parse("26") / 6).ToString("f2"));
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         if (txtUserName.Text == "" && txtPassWord.Text == "")
-            ClientScript.RegisterStartupScript(this.GetType(), "Error", "alert('用户名或密码错误,请重新输入!')", true);
+        ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','账号或密码不为空！','error'); ", true);
         else
         {
             string sql = "select * from departments where deptname=@name and LoginPwd=@pwd and ismarking=1";
@@ -32,12 +31,11 @@ public partial class login : System.Web.UI.Page
             if (ds.Tables[0].Rows.Count > 0)
             {
                 Session["DeptID"] = ds.Tables[0].Rows[0][0];
-                Session["ClassID"] = ds.Tables[0].Rows[0][1];
-                Session["DeptName"] = ds.Tables[0].Rows[0][2];
+                Session["DeptName"] = ds.Tables[0].Rows[0][1];
                 Response.Redirect("Marks.aspx");
             }
             else
-                ClientScript.RegisterStartupScript(this.GetType(), "Error", "alert('用户名或密码错误,请重新输入!')", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "Error", "$.messager.alert('错误','账号或密码不正确！','error'); ", true);
         }
 
     }

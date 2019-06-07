@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 public partial class Admin_ViewDeptScore : System.Web.UI.Page
 {
     public string showYear;
@@ -28,14 +29,12 @@ public partial class Admin_ViewDeptScore : System.Web.UI.Page
     }
     private void BindRep(string ym)
     {
-        string isExist = "select * from DeptScore where scoredate='" + ym + "'";
-        DataSet existDs = DirectDataAccessor.QueryForDataSet(isExist);
+        string isExist = "select * from Marks where MarkMonth=@ym";
+        DataSet existDs = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, isExist, new SqlParameter("@ym", ym));
         if (existDs.Tables[0].Rows.Count > 0)
         {
-            string sql = "select d.id,d.deptname,x.score from departments d left join ( select d.id,s.score from departments d";
-            sql += "  join DeptScore s on s.deptid=d.id where s.scoredate='" + ym + "') x";
-            sql += " on x.id=d.id  where d.scoreNum<>0 ";
-            DataSet ds = DirectDataAccessor.QueryForDataSet(sql);
+            string sql = "SELECT a.id,a.DeptName,b.Score FROM (SELECT id, DeptName FROM dbo.Departments WHERE scoreNum <> 0)a LEFT JOIN(SELECT ByMarkDeptID, CONVERT(DECIMAL(5, 2), AVG(CAST(Score AS DECIMAL(5, 2))))AS score FROM Marks WHERE MarkMonth = @ym GROUP BY ByMarkDeptID) b ON a.id = b.ByMarkDeptID  ";
+            DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql, new SqlParameter("@ym", ym));
             rep.DataSource = ds;
             rep.DataBind();
         }
@@ -46,8 +45,13 @@ public partial class Admin_ViewDeptScore : System.Web.UI.Page
     }
     protected void Search_Click(object sender, EventArgs e)
     {
-        BindRep(ddlYm.Value);
-        showYear = ddlYm.Value.Split('-')[0].Trim();
-        showMonth = ddlYm.Value.Split('-')[1].Trim();
+        if (ddlYm.Value.Length == 0)
+            Response.Write("<script type='text/javascript'>alert('请选择月份！');</script>");
+        else
+        {
+            BindRep(ddlYm.Value);
+            showYear = ddlYm.Value.Split('-')[0].Trim();
+            showMonth = ddlYm.Value.Split('-')[1].Trim();
+        }
     }
 }

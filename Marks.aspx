@@ -4,8 +4,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>服务支撑评价</title>
+    <link href="Css/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
     <link href="css/style.css" type="text/css" rel="Stylesheet" />
+      <%--引入Jquery文件--%>
+    <script src="js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/extJquery.js" type="text/javascript"></script>
+    <%--引入easyui文件--%>
+    <script src="js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script type="text/javascript">
         //得到重复得分信息
         function getRepeatNum(arr) {
@@ -23,10 +32,10 @@
             return res;
         }
         //2019年4月25日增加打分限制。
-        //1、10分占比16.7%；
-        //2、8-9分占比33.3%；
-        //3、5-7分占比33.3%；
-        //4、5分以下16.7%。
+        //1、10分占比20%；
+        //2、8-9分占比30%；
+        //3、5-7分占比30%；
+        //4、5分以下20%。
         function chkblank() {
             var tjok = true;
             var total = document.getElementById("total").value;
@@ -76,26 +85,26 @@
                 //将得分压入数组
                 // orginArr.push(score.value);
             }
-           
+
             //console.log('10:' + _10num);
             //console.log('8,9:' + _8to9num);
             //console.log('5,7:' + _5to7num);
             //console.log('5:' + _less5num);
             /***********计算各阶段得分比例****************/
-            if (_10num != (total - Math.round(total * 0.167) - Math.round(total * 0.333) - Math.round(total * 0.333))) {
-                alert("10分的数量为" + (total - Math.round(total * 0.167) - Math.round(total * 0.333) - Math.round(total * 0.333)) + "个!");
+            if (_10num != (total - Math.round(total * 0.2) - Math.round(total * 0.3) - Math.round(total * 0.3))) {
+                alert("10分的数量为" + (total - Math.round(total * 0.2) - Math.round(total * 0.3) - Math.round(total * 0.3)) + "个!");
                 return false;
             }
-            if (_8to9num != Math.round(total * 0.333)) {
-                alert("8-9分的数量为" + Math.round(total * 0.333) + "个!");
+            if (_8to9num != Math.round(total * 0.3)) {
+                alert("8-9分的数量为" + Math.round(total * 0.3) + "个!");
                 return false;
             }
-            if (_5to7num != Math.round(total * 0.333)) {
-                alert("5-7分的数量为" + Math.round(total * 0.333) + "个!");
+            if (_5to7num != Math.round(total * 0.3)) {
+                alert("5-7分的数量为" + Math.round(total * 0.3) + "个!");
                 return false;
             }
-            if (_less5num != Math.round(total * 0.167)) {
-                alert("5分以下的数量为" + Math.round(total * 0.167) + "个!");
+            if (_less5num != Math.round(total * 0.2)) {
+                alert("5分以下的数量为" + Math.round(total * 0.2) + "个!");
                 return false;
             }
 
@@ -155,9 +164,9 @@
                                                 <asp:DropDownList ID="ddlMarkMonth" runat="server"></asp:DropDownList>
                                             </b>
                                         </p>
-                                        <table style="border-collapse: collapse" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
-                                            width="90%" border="1">
-                                            <tbody>
+                                        <table class="table-hover table-condensed" style="border-collapse: collapse; margin: 0 auto 20px auto;" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
+                                            border="1" width="90%">
+                                            <thead>
                                                 <tr class="bold" align="center" bgcolor="#ced4e8">
                                                     <td>编号
                                                     </td>
@@ -168,6 +177,8 @@
                                                     <td>备注
                                                     </td>
                                                 </tr>
+                                            </thead>
+                                            <tbody>
                                                 <asp:Repeater ID="rep" runat="server" OnItemDataBound="rep_ItemDataBound">
                                                     <ItemTemplate>
                                                         <tr align="left">
@@ -175,7 +186,7 @@
                                                                 <%#Container.ItemIndex+1 %>
                                                             </td>
                                                             <td>
-                                                                <%#Eval("deptname")%><asp:HiddenField ID="deptId" runat="server" Value='<%#Eval("deptid") %>' />
+                                                                <%#Eval("deptname")%><asp:HiddenField ID="deptId" runat="server" Value='<%#Eval("ByMarkDeptId") %>' />
                                                             </td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddlScore" runat="server">
@@ -190,13 +201,13 @@
                                                 <tr>
                                                     <td colspan="4">备注：<br />
                                                         1、扣分比例高于评价总分30%时需在备注里面填写扣分原因<br />
-                                                        2、各部门得分比例：<span style="color:red;display:inline;">(1)10分占比16.7%；(2)8-9分占比33.3%；(3)5-7分占比33.3%；(4)5分以下16.7%。</span>
+                                                        2、各部门得分比例：<span style="color: red; display: inline;">(1)10分占比20%；(2)8-9分占比30%；(3)5-7分占比30%；(4)5分以下20%。</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div align="center">
-                                            <asp:Button ID="Button1" runat="server" class="btn" Text="提交" OnClick="Button1_Click"
+                                            <asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="提交" OnClick="Button1_Click"
                                                 OnClientClick="return chkblank();" />
                                             <asp:HiddenField ID="total" runat="server" />
                                         </div>
@@ -209,7 +220,7 @@
                             function view() {
                                 var y = document.getElementById("ddlYm").value;
                                 if (y.length == 0)
-                                    alert('请选择日期！');
+                                $.messager.alert('提醒','请选择月份！','info'); 
                                 else {
                                     var url = "view.aspx?ym=" + y;
                                     window.open(url, "view", "resizable=yes,scrollbars=yes,location=no,toolbar=no,menubar=no,status=no");
@@ -227,7 +238,7 @@
                                     <td>&nbsp;&nbsp;
                                         <input type="text" style="width: 100px;" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy年MM月',readOnly:'true',vel:'ddlYm',realDateFmt:'yyyy-MM'})" />
                                         <input type="hidden" id="ddlYm" />
-                                        <input onclick="view()" type="button" class="btn" value="查看" />
+                                        <input onclick="view()" type="button" class="btn btn-info" value="查看" />
                                     </td>
                                 </tr>
                             </tbody>

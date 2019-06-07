@@ -110,17 +110,5 @@ public partial class GridMarks : System.Web.UI.Page
             }
 
         }
-        //if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.EditItem)
-        //{
-        //    //HiddenField byMarkDeptID = (HiddenField)e.Item.FindControl("deptId");//被打分部门id
-        //    //string scoreNum = DirectDataAccessor.QueryForDataSet("select scorenum from departments where id=" + byMarkDeptID.Value).Tables[0].Rows[0][0].ToString();
-        //    DropDownList ddlScore = e.Item.FindControl("ddlScore") as DropDownList;
-        //    ddlScore.Items.Add(new ListItem("请选择分值", "-1"));
-        //    for (int i = 10; i >= 0; i--)
-        //    {
-        //        ddlScore.Items.Add(new ListItem(i.ToString()));
-        //    }
-
-        //}
     }
 }

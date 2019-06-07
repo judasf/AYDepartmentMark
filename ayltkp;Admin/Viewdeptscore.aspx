@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>服务支撑评价系统后台查询</title>
+    <link href="../Css/bootstrap.min.css" rel="stylesheet" />
     <link href="../CSS/style.css" rel="Stylesheet" />
     <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
 </head>
@@ -21,7 +22,7 @@
                     &nbsp;&nbsp; <b style="line-height: 18px; font-size: 14px;">以往考核分数查询：</b>
                      <input type="text"  style="width:100px;"  class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy年MM月',readOnly:'true',vel:'ddlYm',realDateFmt:'yyyy-MM'})" />
                     <asp:HiddenField ID="ddlYm" runat="server"/>            
-                    <asp:Button ID="Search" runat="server" class="btn" Text="查看" OnClick="Search_Click" />
+                    <asp:Button ID="Search" runat="server" class="btn btn-info" Text="查看" OnClick="Search_Click" />
                         &nbsp;&nbsp; <a href="deptinfo.aspx"><b style="line-height: 18px; font-size: 14px;">打分部门管理</b></a>
                     &nbsp;&nbsp; <a href="AdminChangePwd.aspx"><b style="font-size: 14px;">修改密码</b></a>&nbsp;&nbsp;
                     <a href="Logout.aspx"><b style="font-size: 14px;">退出</b></a>
@@ -44,8 +45,8 @@
                                         <input type="hidden" value="<%=showMonth %>" id="hidMonth" />
                                         <b>分数月份：<%=showYear %>年<%=showMonth %>月份</b></p>
                                     <b id="noScore" style="display: none; height: 400px;">没有本月评分信息！ </b>
-                                    <table style="border-collapse: collapse" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
-                                        width="90%" border="1" id="scoreList">
+                                    <table class="table-condensed table-hover" style="border-collapse: collapse;width: 70%;margin:0 auto;" bordercolor="#6a71a3" cellspacing="1" cellpadding="3"
+                                        border="1" id="scoreList">
                                         <tbody>
                                             <tr class="bold" align="center" bgcolor="#ced4e8">
                                                 <td>

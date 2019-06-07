@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>详细评分信息</title>
+    <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="margin: 5px 0;">
@@ -19,8 +20,9 @@
                 <p align="left">
                     <b>得分月份：<%=Request.QueryString["year"] %>年<%=Request.QueryString["month"] %>月份</b>&nbsp;&nbsp;&nbsp;&nbsp;<b>网格名称:<%=deptName %></b></p>
                 <b id="noScore" style="display: none;">没有本月评分信息！</b>
-                <table border="1" width="90%" cellspacing="1" cellpadding="3" style="border-collapse: collapse;"
+                <table class="table-hover" border="1" width="90%" cellspacing="1" cellpadding="3" style="border-collapse: collapse;"
                     bordercolor='#6A71A3' id="scoreList">
+                    <thead>
                     <tr bgcolor='#CED4E8' align="center" class="bold">
                         <td>
                             序号
@@ -38,6 +40,8 @@
                             评分时间
                         </td>
                     </tr>
+                        </thead>
+                    <tbody>
                     <asp:Repeater ID="repList" runat="server">
                         <ItemTemplate>
                             <tr align="center">
@@ -59,6 +63,7 @@
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
+                        </tbody>
                 </table>
             </td>
         </tr>

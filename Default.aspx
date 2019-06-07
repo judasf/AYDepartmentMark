@@ -7,6 +7,14 @@
     <title>服务支撑评价</title>
     <link href="images2/css_login.css" type="text/css" rel="stylesheet" />
     <link href="images2/before_login.css" type="text/css" rel="stylesheet" />
+      <%--引入Jquery文件--%>
+    <script src="js/easyui/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/extJquery.js" type="text/javascript"></script>
+    <%--引入easyui文件--%>
+    <script src="js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <!--[if lt IE 7.]>
 <script defer type="text/javascript" src="js/pngfix.js"></script>
 <![endif]-->
@@ -53,20 +61,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="nav">
-        <ul class="liste_bgrd">
-            <li><a onclick="change_theme('theme1');" href="#">
-                <img alt="商都飘渺" src="images2/ico_bgrd_1.gif" /></a> </li>
-            <li><a onclick="change_theme('theme2');" href="#">
-                <img alt="商业气息" src="images2/ico_bgrd_2.gif" /></a> </li>
-            <li><a onclick="change_theme('theme3');" href="#">
-                <img alt="热情奔放" src="images2/ico_bgrd_3.gif" /></a> </li>
-            <li><a onclick="change_theme('theme4');" href="#">
-                <img alt="桌面经典" src="images2/ico_bgrd_4.gif" /></a> </li>
-            <li><a onclick="change_theme('theme5');" href="#">
-                <img alt="自然梦幻" src="images2/ico_bgrd_5.gif" /></a> </li>
-        </ul>
-    </div>
     <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td align="center" valign="top">
@@ -111,7 +105,7 @@
                                 <tr>
                                     <td>
                                         
-                                        <asp:ImageButton ID="btnLogin" runat="server" ImageUrl="images2/log_an.png" OnClick="btnLogin_Click" />
+                                        <asp:ImageButton ID="btnLogin" runat="server" ImageUrl="images2/log_an.png" OnClick="btnLogin_Click"  style="cursor:pointer;"/>
                                        
                                     </td>
                                 </tr>

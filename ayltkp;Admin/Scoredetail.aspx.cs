@@ -13,18 +13,17 @@ public partial class Admin_ScoreDetail : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.QueryString["gid"] == null || Request.QueryString["gid"] == "" || Request.QueryString["year"] == null || Request.QueryString["year"] == "")
+            if (Request.QueryString["deptId"] == null || Request.QueryString["deptId"] == "" || Request.QueryString["year"] == null || Request.QueryString["year"] == "")
                 Response.Write("<script type='text/javascript'>alert('请重新登陆！');window.location.href='Default.aspx';</script>");
             else
             {
-                string deptNameSql = "select GridName from G_GridInfo where id=" + Request.QueryString["gid"];
+                string deptNameSql = "select DeptName from Departments where id=" + Request.QueryString["deptId"];
                 DataSet deptDs = DirectDataAccessor.QueryForDataSet(deptNameSql);
                 deptName = deptDs.Tables[0].Rows[0][0].ToString();
                 string scoreDate = Request.QueryString["year"] + "-" + Request.QueryString["month"];
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" SELECT c.GridName,score,memo,b.Time FROM (SELECT * FROM dbo.G_GridMarkRelation WHERE ByMarkGridId = @gid) a LEFT JOIN dbo.G_GridMarksInfo b ON a.GridID = b.GridID AND b.ByMarkGridID = @gid AND b.MarkMonth = @markmonth JOIN dbo.G_GridInfo c ON  a.GridID = c.ID ");
-               
-                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql.ToString(), new SqlParameter[] { new SqlParameter("@gid", Request.QueryString["gid"]), new SqlParameter("@markmonth", scoreDate) });
+                sql.Append(" SELECT c.DeptName,score,memo,b.Time FROM (SELECT * FROM dbo.DeptMarkRelation WHERE ByMarkDeptId = @deptId) a LEFT JOIN dbo.Marks b ON a.deptid = b.deptid AND b.ByMarkDeptID = @deptId AND b.MarkMonth = @markmonth JOIN Departments c ON  a.deptID = c.ID ");
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql.ToString(), new SqlParameter[] { new SqlParameter("@deptId", Request.QueryString["deptId"]), new SqlParameter("@markmonth", scoreDate) });
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     repList.DataSource = ds;
