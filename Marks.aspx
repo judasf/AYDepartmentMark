@@ -200,8 +200,7 @@
                                                 </asp:Repeater>
                                                 <tr>
                                                     <td colspan="4">备注：<br />
-                                                        1、扣分比例高于评价总分30%时需在备注里面填写扣分原因<br />
-                                                        2、各部门得分比例：<span style="color: red; display: inline;">(1)10分占比20%；(2)8-9分占比30%；(3)5-7分占比30%；(4)5分以下20%。</span>
+                                                        各部门得分比例：<span style="color: red; display: inline;">(1)10分占比20%；(2)8-9分占比30%；(3)5-7分占比30%；(4)5分以下20%。</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
